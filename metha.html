@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>METHA - Investasi dalam Energi Bersih dan Masa Depan Berkelanjutan</title>
+    <!-- Load Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide icons dari CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Load Inter font dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Body typography and smooth scroll */
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            background-color: #F8F8F8; /* Light off-white background */
+        }
+        html {
+    scroll-behavior: smooth;
+}
+
+section:target {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+        /* Hero section with a stronger visual appeal */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4037efe9-aac4-4353-9cd9-fdf02af80cad.png') no-repeat center center/cover;
+            background-attachment: fixed; /* Parallax effect for depth */
+            height: 95vh; /* Slightly taller for grandeur */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        /* Card and button hover effects */
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+            background-color: #FFFFFF;
+        }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* Animated gradient background for strong CTAs */
+        .animated-gradient-bg {
+            background: linear-gradient(270deg, #10B981, #3B82F6, #8B5CF6);
+            background-size: 600% 600%;
+            -webkit-animation: GradientAnimation 15s ease infinite;
+            -moz-animation: GradientAnimation 15s ease infinite;
+            animation: GradientAnimation 15s ease infinite;
+        }
+        @-webkit-keyframes GradientAnimation {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @-moz-keyframes GradientAnimation {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        @keyframes GradientAnimation {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        /* Sticky header shadow and background on scroll */
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+        /* Custom modal styles for polished messaging */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+            width: 90%;
+            max-width: 550px;
+            text-align: center;
+            position: relative;
+            transform: translateY(-30px);
+            animation: fadeInScale 0.4s ease-out forwards;
+        }
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: translateY(-30px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 32px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #555;
+        }
+        /* Custom scrollbar for webkit browsers */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 6px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #10B981; /* Green from the palette */
+            border-radius: 6px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0A7F54; /* Darker green on hover */
+        }
+        /* Custom animation for hero section */
+        @keyframes fade-in-down {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* New: Fade-in-left and Fade-in-right */
+        @keyframes fade-in-left {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fade-in-right {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-down {
+            animation: fade-in-down 1s ease-out;
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 1s ease-out;
+        }
+        /* New: Classes for scroll-triggered animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px); /* Default for fade-in-up */
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .animate-on-scroll.fade-in-left {
+            transform: translateX(-20px);
+        }
+        .animate-on-scroll.fade-in-left.is-visible {
+            transform: translateX(0);
+        }
+        .animate-on-scroll.fade-in-right {
+            transform: translateX(20px);
+        }
+        .animate-on-scroll.fade-in-right.is-visible {
+            transform: translateX(0);
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+        .delay-800 {
+            animation-delay: 0.8s;
+        }
+
+        /* Custom logo styling */
+        .logo-glow {
+            filter: drop-shadow(0 0 15px rgba(16, 185, 129, 0.5));
+            transition: filter 0.3s ease;
+        }
+        .logo-glow:hover {
+            filter: drop-shadow(0 0 25px rgba(16, 185, 129, 0.8));
+        }
+        /* Enhanced team member styling */
+        .team-member {
+            transition: all 0.3s ease;
+        }
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        /* Improved footer styling */
+        .footer-link:hover {
+            color: #10B981;
+            text-decoration: underline;
+        }
+        /* Custom section styling */
+        .section-title {
+            background: linear-gradient(90deg, #10B981, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Improved button styling */
+        .btn-outline {
+            border: 2px solid #10B981;
+            color: #10B981;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover {
+            background-color: #10B981;
+            color: white;
+        }
+
+        /* New: Social icon bounce on hover */
+        .social-icon-bounce {
+            transition: transform 0.2s ease-out;
+        }
+        .social-icon-bounce:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+    <!-- Scroll Progress Bar -->
+<div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-blue-500 z-50" style="width: 0%;"></div>
+
+    <!-- PRELOADER dengan teks -->
+<div id="preloader" class="fixed inset-0 bg-white flex flex-col items-center justify-center z-[9999] space-y-4">
+  <!-- Spinner -->
+  <div class="animate-spin rounded-full h-16 w-16 border-4 border-green-600 border-t-transparent"></div>
+  <!-- Teks Loading -->
+  <p class="text-xl text-gray-700 font-semibold animate-pulse">Memuat halaman... Mohon tunggu</p>
+</div>
+    <!-- Header & Navbar -->
+    <header id="main-header" class="bg-white fixed w-full z-50 transition-all duration-300">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center gap-4 flex-wrap">
+    <!-- Logo METHA -->
+    <a href="#home" class="flex items-center space-x-3">
+      <img src="images/METHA-removebg-preview.png" 
+           alt="METHA Logo" 
+           class="h-12 w-12 md:h-14 md:w-14 rounded-full shadow-lg logo-glow">
+      <span class="text-2xl md:text-4xl font-extrabold text-gray-900 tracking-tight">METHA</span>
+    </a>
+
+    <!-- Desktop Navigation Menu -->
+    <nav class="hidden md:flex space-x-6 lg:space-x-10 flex-shrink">
+      <a href="#home" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300 relative group">
+        Beranda
+        <span class="absolute inset-x-0 bottom-0 h-1 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+      <a href="#about" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300 relative group">
+        Tentang Kami
+        <span class="absolute inset-x-0 bottom-0 h-1 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+      <a href="#opportunity" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300 relative group">
+        Peluang Pasar
+        <span class="absolute inset-x-0 bottom-0 h-1 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+      <a href="#technology" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300 relative group">
+        Teknologi Inovatif
+        <span class="absolute inset-x-0 bottom-0 h-1 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+      <a href="#impact" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300 relative group">
+        Dampak & ESG
+        <span class="absolute inset-x-0 bottom-0 h-1 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+      <a href="#team" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300 relative group">
+        Tim Kami
+        <span class="absolute inset-x-0 bottom-0 h-1 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+      <a href="#investor" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300 relative group">
+        Investor
+        <span class="absolute inset-x-0 bottom-0 h-1 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+      <a href="#contact" class="text-gray-700 hover:text-green-600 font-semibold text-lg transition duration-300 relative group">
+        Kontak
+        <span class="absolute inset-x-0 bottom-0 h-1 bg-green-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <div class="md:hidden">
+      <button id="mobile-menu-button" class="text-gray-800 focus:outline-none p-3 rounded-md hover:bg-gray-100 transition duration-200">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+             xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Navigation Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white py-4 shadow-inner">
+    <a href="#home" class="block px-8 py-3 text-gray-800 hover:bg-gray-50 transition duration-300 border-b border-gray-100">Beranda</a>
+    <a href="#about" class="block px-8 py-3 text-gray-800 hover:bg-gray-50 transition duration-300 border-b border-gray-100">Tentang Kami</a>
+    <a href="#opportunity" class="block px-8 py-3 text-gray-800 hover:bg-gray-50 transition duration-300 border-b border-gray-100">Peluang Pasar</a>
+    <a href="#technology" class="block px-8 py-3 text-gray-800 hover:bg-gray-50 transition duration-300 border-b border-gray-100">Teknologi Inovatif</a>
+    <a href="#impact" class="block px-8 py-3 text-gray-800 hover:bg-gray-50 transition duration-300 border-b border-gray-100">Dampak & ESG</a>
+    <a href="#team" class="block px-8 py-3 text-gray-800 hover:bg-gray-50 transition duration-300 border-b border-gray-100">Tim Kami</a>
+    <a href="#investor" class="block px-8 py-3 text-gray-800 hover:bg-gray-50 transition duration-300 border-b border-gray-100">Investor</a>
+    <a href="#contact" class="block px-8 py-3 text-gray-800 hover:bg-gray-50 transition duration-300">Kontak</a>
+  </div>
+</header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="max-w-6xl px-6 py-24">
+                <h1 class="text-6xl md:text-8xl font-extrabold leading-tight mb-8 tracking-tighter drop-shadow-xl animate-fade-in-down">
+                    Investasi dalam <span class="text-green-400">Revolusi Energi Bersih</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-12 opacity-95 drop-shadow-lg animate-fade-in-up">
+                    METHA mengubah limbah plastik global menjadi metanol bernilai tinggi, menciptakan masa depan yang berkelanjutan dan peluang investasi yang menguntungkan.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-6 animate-fade-in-up delay-200">
+                    <a href="#investor" class="btn-primary bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform shadow-xl ring-2 ring-green-400 ring-opacity-50 inline-flex items-center space-x-3">
+                        <span>Lihat Peluang Investasi</span>
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </a>
+                    <a href="#technology" class="btn-primary bg-transparent border-2 border-white text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:bg-white hover:text-green-700 shadow-xl inline-flex items-center space-x-3">
+                        <span>Jelajahi Teknologi Kami</span>
+                        <i data-lucide="flask-conical" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- About Us Section: Our Vision & Mission for Investors -->
+        <section id="about" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl font-bold text-center text-gray-900 mb-16 animate-on-scroll">Tentang <span class="text-green-600">METHA</span></h2>
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2 order-2 lg:order-1 animate-on-scroll fade-in-left">
+                        <img src="images/METHA-removebg-preview.png" alt="Visi & Misi Perusahaan" class="rounded-3xl shadow-2xl border border-gray-200 card-hover-effect">
+                    </div>
+                    <div class="lg:w-1/2 text-gray-700 leading-relaxed text-lg order-1 lg:order-2 animate-on-scroll fade-in-right">
+                        <p class="mb-8 text-xl">
+                            METHA lahir dari urgensi global untuk mengatasi krisis limbah plastik sekaligus memenuhi kebutuhan energi yang terus meningkat. Kami adalah perusahaan pionir yang memanfaatkan teknologi <span class="font-semibold text-green-700">Thermal Hydrplastic Alchemy</span> untuk mengubah limbah plastik yang tidak termanfaatkan menjadi metanol berkualitas tinggi.
+                        </p>
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-5 flex items-center">
+                            <i data-lucide="eye" class="w-7 h-7 mr-4 text-green-600"></i>Visi Jangka Panjang
+                        </h3>
+                        <p class="mb-8">
+                            Menjadi pemimpin global dan benchmark industri dalam solusi energi sirkular, mendefinisikan ulang nilai dari limbah, dan mendorong adopsi metanol hijau sebagai bahan bakar dan bahan baku masa depan.
+                        </p>
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-5 flex items-center">
+                            <i data-lucide="rocket" class="w-7 h-7 mr-4 text-blue-600"></i>Misi & Dampak
+                        </h3>
+                        <p class="mb-8">
+                            Mengembangkan dan mengoperasikan fasilitas konversi limbah-ke-energi terdepan, memberikan solusi berkelanjutan yang menghasilkan keuntungan finansial, lingkungan, dan sosial yang signifikan. Kami bertekad untuk berkontribusi pada <span class="font-semibold">pencapaian target net-zero emission</span> dan mendukung ekonomi sirkular global.
+                        </p>
+                        <a href="#impact" class="inline-flex items-center text-green-700 font-semibold text-lg hover:underline mt-6">
+                            Pelajari Dampak Kami
+                            <i data-lucide="chevron-right" class="w-6 h-6 ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- New Section: Market Opportunity for Investors -->
+        <section id="opportunity" class="py-24 bg-gray-100">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-bold text-gray-900 mb-16 animate-on-scroll">Peluang Pasar & <span class="text-purple-600">Keunggulan Kompetitif</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="text-left text-gray-700 leading-relaxed text-lg animate-on-scroll fade-in-left">
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-5 flex items-center">
+                            <i data-lucide="bar-chart-2" class="w-7 h-7 mr-4 text-purple-600"></i>Masalah Global, Solusi Lokal
+                        </h3>
+                        <p class="mb-6">
+                            Dunia menghadapi tantangan besar dari limbah plastik. Khususnya di Indonesia, misalnya, <span class="font-semibold">Bali menghasilkan 829 ton sampah plastik per hari</span>, namun hanya sebagian kecil yang didaur ulang. Ini menciptakan kebutuhan mendesak akan solusi pengelolaan limbah yang efektif dan inovatif.
+                        </p>
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-5 flex items-center">
+                            <i data-lucide="target" class="w-7 h-7 mr-4 text-orange-600"></i>Permintaan Metanol Hijau yang Meningkat
+                        </h3>
+                        <p class="mb-6">
+                            Metanol adalah bahan kimia serbaguna dengan permintaan yang stabil dan terus bertumbuh di berbagai industri:
+                            <ul class="list-disc list-inside ml-4 mt-3 space-y-2">
+                                <li>Kimia: Formaldehida, asam asetat, plastik.</li>
+                                <li>Energi: Aditif bahan bakar, pembangkit listrik.</li>
+                                <li>Farmasi: Pelarut, bahan baku obat.</li>
+                            </ul>
+                            Pasar semakin mencari sumber metanol yang bersih dan berkelanjutan, menciptakan <span class="font-semibold">peluang pasar yang sangat besar bagi metanol bio-based.</span>
+                        </p>
+                        <h3 class="text-3xl font-semibold mt-8 text-gray-800 mb-4 flex items-center">
+                            <i data-lucide="gem" class="w-7 h-7 mr-4 text-yellow-600"></i>Keunggulan Kompetitif METHA
+                        </h3>
+                        <p>
+                            Kami menonjol dengan:
+                            <ul class="list-disc list-inside ml-4 mt-3 space-y-2">
+                                <li>Teknologi Paten/Eksklusif (jika ada): Efisiensi konversi yang tinggi dan jejak karbon minimal.</li>
+                                <li>Skalabilitas: Model pabrik yang dapat direplikasi di lokasi lain.</li>
+                                <li>Dukungan Pemerintah & Komunitas: Kemitraan strategis yang kuat.</li>
+                                <li>Pendekatan Ekonomi Sirkular Penuh: Dari limbah ke produk bernilai tinggi.</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="flex justify-center animate-on-scroll fade-in-right">
+                        <img src="images/METHA-removebg-preview.png" alt="Grafik Peluang Pasar Metanol" class="rounded-3xl shadow-2xl border border-gray-200 w-full max-w-lg card-hover-effect">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Our Technology Section: Emphasis on Innovation and Scalability -->
+        <section id="technology" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl font-bold text-center text-gray-900 mb-16 animate-on-scroll">Inovasi di Balik <span class="text-green-600">Teknologi METHA</span></h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div class="relative rounded-xl overflow-hidden shadow-xl">
+<a href="https://youtu.be/RkQ-h20vvgI?si=EGbyHo9cvdkOIzZs" target="_blank" class="block relative group rounded-xl overflow-hidden shadow-lg">
+  <img src="images/METHA-removebg-preview.png" alt="Simulasi Proses METHA" class="w-full h-auto object-cover">
+  <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <div class="bg-white rounded-full p-4 shadow-lg hover:scale-110 transition-transform">
+      <i data-lucide="play-circle" class="w-12 h-12 text-green-600"></i>
+    </div>
+  </div>
+</a>
+
+<p class="text-center mt-2 text-sm text-gray-600">Klik untuk membuka video simulasi proses kami.</p>
+
+</div>
+
+                    <div class="space-y-12 order-1 lg:order-2">
+                        <!-- Process Step 1: Optimized for investor perspective -->
+                        <div class="flex items-start bg-gray-50 p-8 rounded-2xl shadow-md border border-gray-200 card-hover-effect animate-on-scroll delay-200">
+                            <div class="flex-shrink-0 bg-green-600 text-white rounded-full h-14 w-14 flex items-center justify-center text-2xl font-bold mr-6 shadow-lg">1</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800 mb-3">Sistem Pengumpulan & Pra-perlakuan Cerdas</h3>
+                                <p class="text-gray-600 leading-relaxed">Mengolah hingga <span class="font-semibold">120 ton sampah plastik per hari</span>, termasuk jenis yang sulit didaur ulang, dengan efisiensi tinggi melalui sistem sortasi dan persiapan otomatis.</p>
+                            </div>
+                        </div>
+                        <!-- Process Step 2: Highlighting advanced conversion -->
+                        <div class="flex items-start bg-gray-50 p-8 rounded-2xl shadow-md border border-gray-200 card-hover-effect animate-on-scroll delay-400">
+                            <div class="flex-shrink-0 bg-blue-600 text-white rounded-full h-14 w-14 flex items-center justify-center text-2xl font-bold mr-6 shadow-lg">2</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800 mb-3">Reaktor Thermal Hydrplastic Alchemy Canggih</h3>
+                                <p class="text-gray-600 leading-relaxed">Menggunakan kombinasi pirolisis dan gasifikasi tercanggih untuk mengubah limbah plastik menjadi syngas berkualitas tinggi dengan konsumsi energi minimal.</p>
+                            </div>
+                        </div>
+                        <!-- Process Step 3: Focusing on high-value output -->
+                        <div class="flex items-start bg-gray-50 p-8 rounded-2xl shadow-md border border-gray-200 card-hover-effect animate-on-scroll delay-600">
+                            <div class="flex-shrink-0 bg-purple-600 text-white rounded-full h-14 w-14 flex items-center justify-center text-2xl font-bold mr-6 shadow-lg">3</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800 mb-3">Sintesis Metanol Berkemurnian Tinggi</h3>
+                                <p class="text-gray-600 leading-relaxed">Produksi <span class="font-semibold">1,35 ton metanol per ton sampah plastik</span> melalui proses katalitik yang inovatif, memastikan kemurnian dan kesesuaian standar industri.</p>
+                            </div>
+                        </div>
+                        <!-- Process Step 4: Emphasizing scalability -->
+                        <div class="flex items-start bg-gray-50 p-8 rounded-2xl shadow-md border border-gray-200 card-hover-effect animate-on-scroll delay-800">
+                            <div class="flex-shrink-0 bg-teal-600 text-white rounded-full h-14 w-14 flex items-center justify-center text-2xl font-bold mr-6 shadow-lg">4</div>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800 mb-3">Model Operasional Skalabel & Berkelanjutan</h3>
+                                <p class="text-gray-600 leading-relaxed">Dengan kapasitas <span class="font-semibold">204.545 liter metanol per hari</span>, model bisnis kami dirancang untuk replikasi dan ekspansi global, memaksimalkan dampak dan ROI.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Impact & ESG Section -->
+        <!-- Counter Section -->
+<section id="impact" class="py-24 bg-gray-50">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="text-5xl font-bold text-gray-900 mb-16 animate-on-scroll">
+      Dampak <span class="text-green-600">ESG & Keberlanjutan</span>
+    </h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+
+      <!-- Box 1 -->
+      <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-200 flex flex-col items-center">
+        <i data-lucide="recycle" class="w-24 h-24 text-green-600 mb-8"></i>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Lingkungan Bersih</h3>
+        <p class="text-gray-600 text-lg mb-6">Mengurangi timbunan sampah plastik di TPA dan perairan, serta mencegah pembakaran terbuka yang berbahaya.</p>
+        <div class="text-6xl font-extrabold text-green-700">
+          <span class="counter" data-target="95" data-suffix="%+">0%+</span>
+        </div>
+        <p class="text-xl text-gray-500">Pengurangan Limbah TPA</p>
+      </div>
+
+      <!-- Box 2 -->
+      <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-200 flex flex-col items-center">
+        <i data-lucide="cloud-off" class="w-24 h-24 text-blue-600 mb-8"></i>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Pengurangan Emisi</h3>
+        <p class="text-gray-600 text-lg mb-6">Secara signifikan mengurangi emisi CO2, berkontribusi pada pencapaian target iklim global.</p>
+        <div class="text-6xl font-extrabold text-blue-700">
+          <span class="counter" data-target="1500">0</span>
+          <span class="symbol opacity-0 transition-opacity duration-700"></span>
+        </div>
+        <p class="text-xl text-gray-500">kg CO₂ / Ton Plastik</p>
+      </div>
+
+      <!-- Box 3 -->
+      <div class="bg-white p-10 rounded-3xl shadow-xl border border-gray-200 flex flex-col items-center">
+        <i data-lucide="users" class="w-24 h-24 text-purple-600 mb-8"></i>
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Pemberdayaan Ekonomi</h3>
+        <p class="text-gray-600 text-lg mb-6">Menciptakan lapangan kerja hijau, mendukung komunitas lokal, dan mendorong ekonomi sirkular.</p>
+        <div class="text-6xl font-extrabold text-purple-700">
+          <span class="counter" data-target="100" data-suffix="+">0+</span>
+        </div>
+        <p class="text-xl text-gray-500">Peluang Kerja Langsung</p>
+      </div>
+    </div>
+  </div>
+</section>
+        <!-- New Section: Our Visionary Team -->
+        <section id="team" class="py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-bold text-gray-900 mb-16 animate-on-scroll">Tim <span class="text-indigo-600">Visioner Kami</span></h2>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-16 animate-on-scroll delay-200">Dibalik setiap inovasi METHA adalah tim ahli yang berdedikasi dengan pengalaman mendalam dalam teknik, keberlanjutan, dan strategi bisnis.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    <!-- Team Member 1 (Placeholder) -->
+                    <div class="team-member card-hover-effect bg-gray-50 p-8 rounded-3xl shadow-xl border border-gray-200 flex flex-col items-center animate-on-scroll">
+                        <img src="images/pp wa estetik.jpg"
+                        " alt="CEO Placeholder" class="w-48 h-48 rounded-full mb-6 object-cover border-4 border-green-300 shadow-md">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Fajar Kurniawan</h3>
+                        <p class="text-green-600 font-medium text-lg mb-4">Presiden Direktur</p>
+                        <p class="text-gray-600 leading-relaxed text-sm">Visioner di balik METHA, dengan pengalaman puluhan tahun di industri energi terbarukan dan manajemen limbah.</p>
+                        <div class="flex space-x-4 mt-6">
+                            <a href="#" class="text-gray-500 hover:text-blue-700 transition duration-300 social-icon-bounce" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-7 h-7"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-green-700 transition duration-300 social-icon-bounce" aria-label="Email"><i data-lucide="mail" class="w-7 h-7"></i></a>
+                        </div>
+                    </div>
+                    <!-- Team Member 2 (Placeholder) -->
+                    <div class="team-member card-hover-effect bg-gray-50 p-8 rounded-3xl shadow-xl border border-gray-200 flex flex-col items-center animate-on-scroll delay-200">
+                        <img src="images/pp wa estetik.jpg" alt="CTO Placeholder" class="w-48 h-48 rounded-full mb-6 object-cover border-4 border-green-300 shadow-md">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">I Made Rio Aditya Kresnadinata</h3>
+                        <p class="text-green-600 font-medium text-lg mb-4">Wakil Presiden Teknologi</p>
+                        <p class="text-gray-600 leading-relaxed text-sm">Pakar terkemuka dalam teknologi pirolisis dan gasifikasi, perancang utama sistem Thermal Hydrplastic Alchemy.</p>
+                        <div class="flex space-x-4 mt-6">
+                            <a href="#" class="text-gray-500 hover:text-blue-700 transition duration-300 social-icon-bounce" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-7 h-7"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-green-700 transition duration-300 social-icon-bounce" aria-label="Email"><i data-lucide="mail" class="w-7 h-7"></i></a>
+                        </div>
+                    </div>
+                    <!-- Team Member 3 (Placeholder) -->
+                    <div class="team-member card-hover-effect bg-gray-50 p-8 rounded-3xl shadow-xl border border-gray-200 flex flex-col items-center animate-on-scroll delay-400">
+                        <img src="images/pp wa estetik.jpg" alt="CFO Placeholder" class="w-48 h-48 rounded-full mb-6 object-cover border-4 border-green-300 shadow-md">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">I Gede Erland Yesa Pratama</h3>
+                        <p class="text-green-600 font-medium text-lg mb-4">Wakil Presiden Operasional</p>
+                        <p class="text-gray-600 leading-relaxed text-sm">Ahli strategi keuangan dengan rekam jejak sukses dalam penggalangan dana dan pengelolaan investasi startup.</p>
+                        <div class="flex space-x-4 mt-6">
+                            <a href="#" class="text-gray-500 hover:text-blue-700 transition duration-300 social-icon-bounce" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-7 h-7"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-green-700 transition duration-300 social-icon-bounce" aria-label="Email"><i data-lucide="mail" class="w-7 h-7"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Partnerships Section (Enhanced) -->
+        <section id="partnerships" class="py-24 bg-gradient-to-r from-green-700 to-green-900 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-bold mb-16 animate-on-scroll">Ekosistem <span class="text-green-300">Kemitraan Strategis</span></h2>
+                <p class="text-xl opacity-90 max-w-4xl mx-auto mb-16 animate-on-scroll delay-200">Kami membangun jaringan kolaborasi yang kuat dengan para pemimpin di sektor pemerintahan, teknologi, dan industri untuk mempercepat dampak dan pertumbuhan.</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-center">
+                    <!-- Partner Logo 1 (Pemerintah) -->
+                  <div class="p-0 bg-transparent flex items-center justify-center h-auto animate-on-scroll">
+                    <img src="images/HIW.png" alt="Logo Mitra Pemerintah" class="w-90 h-90 object-contain">
+                    </div>
+
+                    <!-- Partner Logo 2 (Penyedia Teknologi) -->
+                    <div class="p-0 bg-transparent flex items-center justify-center h-auto animate-on-scroll delay-200">
+                        <img src="images/Pertamina.png" alt="Logo Mitra Teknologi" class="w-90 h-90 object-contain">
+                    </div>
+                    <!-- Partner Logo 3 (BRIN) -->
+                    <div class="p-0 bg-transparent flex items-center justify-center h-auto animate-on-scroll delay-400">
+                        <img src="images/bri.png" alt="Logo BRIN" class="w-90 h-90 object-contain scale-500">
+                    </div>
+                    <!-- Partner Logo 4 (Katalis) -->
+                   <div class="p-0 bg-transparent flex items-center justify-center h-auto animate-on-scroll delay-600">
+                        <img src="images/kata.png" alt="Logo Mitra Katalis" class="w-85 h-85 object-contain">
+                    </div>
+                    <!-- Partner Logo 5 (Distributor) -->
+                   <div class="p-0 bg-transparent flex items-center justify-center h-auto animate-on-scroll delay-800">
+                        <img src="images/AOF.png" alt="Logo Mitra Distributor" class="w-90 h-90 object-contain">
+                    </div>
+                </div>
+                <div class="mt-20 animate-on-scroll delay-400">
+                    <p class="text-3xl font-semibold mb-8">Memperkuat Jaringan untuk Dampak Global</p>
+                    <a href="#contact" class="btn-primary bg-white text-green-800 hover:bg-gray-100 font-bold py-4 px-12 rounded-full text-lg transition duration-300 transform shadow-xl ring-2 ring-white ring-opacity-50 inline-flex items-center space-x-3">
+                        <span>Bergabunglah dengan Ekosistem Kami</span>
+                        <i data-lucide="network" class="w-7 h-7"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- New Section: Investor Relations / Call to Action for Investors -->
+        <section id="investor" class="py-24 bg-gray-100">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-bold text-gray-900 mb-16 animate-on-scroll">Peluang Investasi <span class="text-red-600">dengan METHA</span></h2>
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto mb-16 animate-on-scroll delay-200">Kami mengundang para investor strategis yang visioner untuk menjadi bagian dari perjalanan kami dalam merevolusi energi bersih dan pengelolaan limbah.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+                    <!-- Investment Prospect Card -->
+                    <div class="card-hover-effect bg-white p-10 rounded-3xl shadow-xl border border-green-200 text-left animate-on-scroll">
+                        <div class="flex items-center mb-6">
+                            <i data-lucide="line-chart" class="w-16 h-16 text-green-600 mr-6"></i>
+                            <div>
+                                <h3 class="text-2xl font-semibold text-gray-800">Potensi Pertumbuhan Eksponensial</h3>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-lg mb-6">
+                            Posisi METHA di persimpangan pengelolaan limbah dan energi terbarukan menawarkan jalur pertumbuhan yang kuat, didukung oleh regulasi yang menguntungkan dan peningkatan kesadaran lingkungan.
+                        </p>
+                        <ul class="list-disc list-inside ml-4 text-gray-600 text-base space-y-2">
+                            <li>Pasar yang berkembang pesat untuk metanol hijau.</li>
+                            <li>Model bisnis yang terbukti dengan arus kas yang beragam.</li>
+                            <li>Skalabilitas global dengan unit modular.</li>
+                            <li>Pengembalian investasi yang menarik dengan dampak ESG.</li>
+                        </ul>
+                    </div>
+                    <!-- CTA for Investors -->
+                    <div class="card-hover-effect bg-white p-10 rounded-3xl shadow-xl border border-blue-200 text-left flex flex-col justify-between animate-on-scroll delay-200">
+                        <div>
+                            <div class="flex items-center mb-6">
+                                <i data-lucide="award" class="w-16 h-16 text-blue-600 mr-6"></i>
+                                <div>
+                                    <h3 class="text-2xl font-semibold text-gray-800">Menjadi Mitra Kunci Kami</h3>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 leading-relaxed text-lg mb-8">
+                                Kami mencari investor yang memiliki visi jangka panjang dan berkomitmen pada keberlanjutan.
+                            </p>
+                        </div>
+                        <div class="space-y-4">
+                            <a href="#" onclick="showCustomModal('Unduh Prospektus', 'Terima kasih atas minat Anda! Silakan masukkan email Anda untuk mengunduh prospektus kami. Link akan dikirimkan ke email Anda.'); return false;" class="btn-primary w-full animated-gradient-bg text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 transform shadow-lg inline-flex items-center justify-center space-x-3">
+                                <span>Unduh Prospektus Investor</span>
+                                <i data-lucide="download" class="w-6 h-6"></i>
+                            </a>
+                            <a href="#contact" class="btn-primary w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-4 px-8 rounded-full text-lg transition duration-300 transform shadow-lg inline-flex items-center justify-center space-x-3">
+                                <span>Jadwalkan Pertemuan</span>
+                                <i data-lucide="calendar-check" class="w-6 h-6"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- News & Insights Section (from previous version, simplified for brevity as the focus is on investor-facing content) -->
+        <section id="news" class="py-24 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-5xl font-bold text-gray-900 mb-16 animate-on-scroll">Wawasan & <span class="text-teal-600">Berita Terbaru</span></h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- News Article 1 -->
+                    <div class="card-hover-effect bg-gray-50 rounded-2xl shadow-lg border border-gray-200 overflow-hidden animate-on-scroll">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d715b53d-7058-40a9-a700-aeeb5069ecc9.png" alt="Gambar Proyek Terbaru METHA" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <span class="text-sm text-gray-500">25 Juli 2025</span>
+                            <h3 class="text-xl font-semibold text-gray-800 mt-2 mb-3">Pabrik Percontohan METHA Bali Beroperasi Penuh</h3>
+                            <p class="text-gray-700 text-base leading-relaxed line-clamp-3">Mencapai tonggak sejarah penting, pabrik percontohan kami di Bali kini beroperasi penuh, menunjukkan skala dan efisiensi teknologi kami.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold hover:underline mt-4">
+                                Baca Selengkapnya
+                                <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- News Article 2 -->
+                    <div class="card-hover-effect bg-gray-50 rounded-2xl shadow-lg border border-gray-200 overflow-hidden animate-on-scroll delay-200">
+                        <img src="images/awojfoq3j.png" alt="Gambar Laporan Dampak ESG" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <span class="text-sm text-gray-500">18 Juli 2025</span>
+                            <h3 class="text-xl font-semibold text-gray-800 mt-2 mb-3">Laporan Dampak ESG METHA 2025 Dirilis</h3>
+                            <p class="text-gray-700 text-base leading-relaxed line-clamp-3">Transparansi adalah kunci. Laporan terbaru kami merinci dampak lingkungan, sosial, dan tata kelola kami.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold hover:underline mt-4">
+                                Baca Selengkapnya
+                                <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- News Article 3 -->
+                    <div class="card-hover-effect bg-gray-50 rounded-2xl shadow-lg border border-gray-200 overflow-hidden animate-on-scroll delay-400">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/daad8579-8993-416a-8ab6-40c8f09d87b8.png" alt="Gambar Opini Pakar" class="w-full h-48 object-cover">
+                        <div class="p-6 text-left">
+                            <span class="text-sm text-gray-500">10 Juli 2025</span>
+                            <h3 class="text-xl font-semibold text-gray-800 mt-2 mb-3">Opini Pakar: Metanol Hijau, Bahan Bakar Masa Depan</h3>
+                            <p class="text-gray-700 text-base leading-relaxed line-clamp-3">Analisis mendalam dari pakar industri tentang bagaimana metanol hijau dari limbah akan membentuk lanskap energi global.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold hover:underline mt-4">
+                                Baca Selengkapnya
+                                <i data-lucide="chevron-right" class="w-5 h-5 ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-16 animate-on-scroll delay-600">
+                    <a href="#" class="btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform shadow-lg inline-flex items-center space-x-3">
+                        <span>Lihat Semua Wawasan</span>
+                        <i data-lucide="newspaper" class="w-6 h-6"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 bg-gradient-to-br from-gray-100 to-gray-200">
+            <div class="container mx-auto px-6">
+                <h2 class="text-5xl font-bold text-center text-gray-900 mb-16 animate-on-scroll">Hubungi <span class="text-orange-600">Kami</span></h2>
+                <div class="flex flex-col lg:flex-row justify-center items-start gap-16 max-w-7xl mx-auto">
+                    <!-- Contact Form -->
+                    <div class="bg-white p-12 rounded-3xl shadow-xl border border-gray-200 w-full lg:w-1/2 card-hover-effect animate-on-scroll fade-in-left">
+                        <h3 class="text-3xl font-semibold text-gray-800 mb-10">Kirimkan Pesan Anda</h3>
+                        <form id="contact-form" class="space-y-8">
+                            <div>
+                                <label for="form-name" class="block text-left text-gray-700 text-lg font-medium mb-3">Nama Lengkap</label>
+                                <input type="text" id="form-name" name="name" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-green-500 transition duration-200 text-lg" placeholder="Nama Anda" required>
+                            </div>
+                            <div>
+                                <label for="form-email" class="block text-left text-gray-700 text-lg font-medium mb-3">Email</label>
+                                <input type="email" id="form-email" name="email" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-green-500 transition duration-200 text-lg" placeholder="email@example.com" required>
+                            </div>
+                            <div>
+                                <label for="form-subject" class="block text-left text-gray-700 text-lg font-medium mb-3">Subjek</label>
+                                <input type="text" id="form-subject" name="subject" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-green-500 transition duration-200 text-lg" placeholder="Subjek Pesan Anda" required>
+                            </div>
+                            <div>
+                                <label for="form-message" class="block text-left text-gray-700 text-lg font-medium mb-3">Pesan Anda</label>
+                                <textarea id="form-message" name="message" rows="7" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-3 focus:ring-green-500 transition duration-200 text-lg" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                            </div>
+                            <button type="submit" class="w-full btn-primary animated-gradient-bg text-white font-bold py-5 px-10 rounded-xl text-xl transition duration-300 transform shadow-xl">
+                                Kirim Pesan
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Contact Info & Map -->
+                    <div class="w-full lg:w-1/2 space-y-12">
+                        <!-- Contact Details -->
+                        <div class="bg-white p-12 rounded-3xl shadow-xl border border-gray-200 card-hover-effect animate-on-scroll delay-200 fade-in-right">
+                            <h3 class="text-3xl font-semibold text-gray-800 mb-10">Detail Kontak Kami</h3>
+                            <div class="space-y-7 text-left text-gray-700 text-xl">
+                                <p class="flex items-center">
+                                    <i data-lucide="mail" class="w-8 h-8 mr-5 text-green-600"></i>
+                                    Email: <a href="mailto:invest@metha.com" class="hover:text-green-700 transition duration-200">invest@metha.com</a>
+                                </p>
+                                <p class="flex items-center">
+                                    <i data-lucide="phone" class="w-8 h-8 mr-5 text-green-600"></i>
+                                    Telepon: <a href="tel:+6281234567890" class="hover:text-green-700 transition duration-200">+62 812 3456 7890</a>
+                                </p>
+                                <p class="flex items-start">
+                                    <i data-lucide="map-pin" class="w-8 h-8 mr-5 text-green-600 flex-shrink-0 mt-2"></i>
+                                    Alamat Kantor Pusat: Kawasan Inovasi Berkelanjutan, Jl. Revolusi Energi No. 10, Jakarta, Indonesia
+                                </p>
+                                <div class="flex items-center space-x-7 mt-10">
+                                    <a href="https://linkedin.com/company/metha" target="_blank" class="text-gray-600 hover:text-blue-700 transition duration-300 social-icon-bounce" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-9 h-9"></i></a>
+                                    <a href="https://twitter.com/metha" target="_blank" class="text-gray-600 hover:text-blue-500 transition duration-300 social-icon-bounce" aria-label="Twitter"><i data-lucide="twitter" class="w-9 h-9"></i></a>
+                                    <a href="https://facebook.com/metha" target="_blank" class="text-gray-600 hover:text-blue-800 transition duration-300 social-icon-bounce" aria-label="Facebook"><i data-lucide="facebook" class="w-9 h-9"></i></a>
+                                    <a href="https://instagram.com/metha" target="_blank" class="text-gray-600 hover:text-pink-600 transition duration-300 social-icon-bounce" aria-label="Instagram"><i data-lucide="instagram" class="w-9 h-9"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Google Maps Embed -->
+                        <div class="bg-white p-8 rounded-3xl shadow-xl border border-gray-200 card-hover-effect animate-on-scroll delay-400 fade-in-right">
+                            <h3 class="text-3xl font-semibold text-gray-800 mb-8">Lokasi Pabrik Percontohan</h3>
+                            <div class="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-inner border border-gray-300">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126138.99026369796!2d115.11874246835938!3d-8.409518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd240b923f73449%3A0x6b4f74d471e9a380!2sBali!5e0!3m2!1sen!2sid!4v1722000000000!5m2!1sen!2sid"
+                                    width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-14">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
+            <!-- Footer Column 1: Logo & Tagline -->
+            <div>
+                <a href="#home" class="flex items-center space-x-3 mb-5">
+                    <img src="https://placehold.co/64x64/10B981/FFFFFF?text=M" alt="METHA Logo" class="h-16 w-16 rounded-full shadow-lg logo-glow">
+                    <span class="text-5xl font-extrabold tracking-tight">METHA</span>
+                </a>
+                <p class="text-gray-400 text-sm leading-relaxed mt-5">
+                    Memimpin transisi global menuju energi bersih dan pengelolaan limbah berkelanjutan.
+                </p>
+                <div class="flex space-x-6 mt-8">
+                    <a href="https://linkedin.com/company/metha" target="_blank" class="text-gray-300 hover:text-white transition duration-300 social-icon-bounce" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-8 h-8"></i></a>
+                    <a href="https://twitter.com/metha" target="_blank" class="text-gray-300 hover:text-white transition duration-300 social-icon-bounce" aria-label="Twitter"><i data-lucide="twitter" class="w-8 h-8"></i></a>
+                    <a href="https://facebook.com/metha" target="_blank" class="text-gray-300 hover:text-white transition duration-300 social-icon-bounce" aria-label="Facebook"><i data-lucide="facebook" class="w-8 h-8"></i></a>
+                    <a href="https://instagram.com/metha" target="_blank" class="text-gray-300 hover:text-white transition duration-300 social-icon-bounce" aria-label="Instagram"><i data-lucide="instagram" class="w-8 h-8"></i></a>
+                </div>
+            </div>
+            <!-- Footer Column 2: Quick Links -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-green-400">Tautan Cepat</h3>
+                <ul class="space-y-4 text-lg">
+                    <li><a href="#home" class="text-gray-300 hover:text-white transition duration-200 footer-link">Beranda</a></li>
+                    <li><a href="#about" class="text-gray-300 hover:text-white transition duration-200 footer-link">Tentang Kami</a></li>
+                    <li><a href="#opportunity" class="text-gray-300 hover:text-white transition duration-200 footer-link">Peluang Pasar</a></li>
+                    <li><a href="#technology" class="text-gray-300 hover:text-white transition duration-200 footer-link">Teknologi Inovatif</a></li>
+                    <li><a href="#impact" class="text-gray-300 hover:text-white transition duration-200 footer-link">Dampak & ESG</a></li>
+                    <li><a href="#team" class="text-gray-300 hover:text-white transition duration-200 footer-link">Tim Kami</a></li>
+                    <li><a href="#investor" class="text-gray-300 hover:text-white transition duration-200 footer-link">Investor</a></li>
+                    <li><a href="#contact" class="text-gray-300 hover:text-white transition duration-200 footer-link">Kontak</a></li>
+                </ul>
+            </div>
+            <!-- Footer Column 3: Resource Hub (New) -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-green-400">Pusat Sumber Daya</h3>
+                <ul class="space-y-4 text-lg text-gray-300">
+                    <li><a href="#" class="hover:text-white transition duration-200 inline-flex items-center footer-link"><i data-lucide="file-text" class="w-6 h-6 mr-3"></i>Unduh Prospektus</a></li>
+                    <li><a href="#" class="hover:text-white transition duration-200 inline-flex items-center footer-link"><i data-lucide="book-open" class="w-6 h-6 mr-3"></i>Laporan Tahunan (segera)</a></li>
+                    <li><a href="#" class="hover:text-white transition duration-200 inline-flex items-center footer-link"><i data-lucide="video" class="w-6 h-6 mr-3"></i>Video Perusahaan</a></li>
+                    <li><a href="#" class="hover:text-white transition duration-200 inline-flex items-center footer-link"><i data-lucide="rss" class="w-6 h-6 mr-3"></i>Berita & Blog</a></li>
+                    <li><a href="#" class="hover:text-white transition duration-200 inline-flex items-center footer-link"><i data-lucide="help-circle" class="w-6 h-6 mr-3"></i>FAQ</a></li>
+                </ul>
+            </div>
+            <!-- Footer Column 4: Newsletter & Company Info -->
+            <div>
+                <h3 class="text-2xl font-semibold mb-8 text-green-400">Tetap Terhubung</h3>
+                <p class="text-gray-300 mb-5 text-lg">Dapatkan pembaruan terbaru dan wawasan industri dari METHA.</p>
+                <form class="flex mb-8">
+                    <input type="email" placeholder="Email Anda" class="p-4 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-green-500 w-full text-gray-900 text-lg">
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 p-4 rounded-r-xl text-white font-semibold text-lg transition duration-300">Daftar</button>
+                </form>
+                <p class="text-gray-500 text-sm mt-5">
+                    METHA (Methanol Energy from Thermal Hydrplastic Alchemy)<br>
+                    Inovasi untuk Masa Depan Berkelanjutan.
+                </p>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-14 pt-10 text-center text-gray-500 text-md">
+            <p>&copy; <span id="current-year-footer"></span> METHA. Hak Cipta Dilindungi Undang-Undang.</p>
+            <p class="mt-3">Dirancang dengan Dedikasi oleh Tim Web Profesional Anda untuk Kesuksesan Investor.</p>
+        </div>
+    </footer>
+    <!-- Custom Message Modal -->
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3 id="modal-title" class="text-3xl font-bold text-gray-800 mb-6"></h3>
+            <p id="modal-message" class="text-xl text-gray-700 mb-8"></p>
+            <button id="modal-close-btn" class="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 shadow-md">Tutup</button>
+        </div>
+    </div>
+    <script>
+        // Initialize Lucide icons on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            // Update current year in footer
+            document.getElementById('current-year-footer').textContent = new Date().getFullYear();
+
+            // Initialize scroll animations
+            initScrollAnimations();
+        });
+        // --- Navbar Scroll Effect ---
+        const mainHeader = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) { // Add shadow and slightly opaque background after scrolling
+                mainHeader.classList.add('header-scrolled');
+            } else {
+                mainHeader.classList.remove('header-scrolled');
+            }
+        });
+        // --- Mobile Menu Toggle ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Close mobile menu when a link is clicked
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        // --- Custom Modal Logic (Replacing alert/confirm) ---
+        const messageModal = document.getElementById('message-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalMessage = document.getElementById('modal-message');
+        const closeButton = document.querySelector('.close-button');
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        /**
+         * Shows a custom modal with a given title and message.
+         * @param {string} title - The title of the modal.
+         * @param {string} message - The message content of the modal.
+         */
+        function showCustomModal(title, message) {
+            modalTitle.textContent = title;
+            modalMessage.textContent = message;
+            messageModal.style.display = 'flex'; // Use flex to center the modal
+        }
+        /**
+         * Hides the custom modal.
+         */
+        function hideCustomModal() {
+            messageModal.style.display = 'none';
+        }
+        // Event listeners for closing the modal
+        closeButton.addEventListener('click', hideCustomModal);
+        modalCloseBtn.addEventListener('click', hideCustomModal);
+        // Close modal if user clicks outside the modal content
+        window.addEventListener('click', (event) => {
+            if (event.target === messageModal) {
+                hideCustomModal();
+            }
+        });
+        // --- Contact Form Submission Handler ---
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (event) => {
+            event.preventDefault(); // Prevent default form submission (page reload)
+            // In a real application, you would send this data to a backend server.
+            // For this demo, we'll just simulate a successful submission
+            showCustomModal('Pesan Terkirim!', 'Terima kasih telah menghubungi METHA! Pesan Anda telah kami terima dan akan segera kami proses.');
+            contactForm.reset(); // Clear the form after submission
+        });
+
+        // --- New: Scroll Animation Logic (Intersection Observer) ---
+        function initScrollAnimations() {
+            const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observerOptions = {
+                root: null, // Use the viewport as the root
+                rootMargin: '0px',
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add 'is-visible' class to trigger the animation
+                        entry.target.classList.add('is-visible');
+                        // Stop observing once animated (optional, for one-time animation)
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animateElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+    </script>
+    <script>
+  window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    if (preloader) {
+      preloader.style.display = "none";
+    }
+  });
+</script>
+<script>
+  const counters = document.querySelectorAll('.counter');
+  const speed = 200;
+
+  const animateCounter = counter => {
+    const suffix = counter.getAttribute('data-suffix') || '';
+    const target = +counter.getAttribute('data-target');
+    let count = 0;
+
+    const updateCount = () => {
+      const increment = target / speed;
+
+      if (count < target) {
+        count = Math.ceil(count + increment);
+        counter.innerText = count + suffix;
+        setTimeout(updateCount, 10);
+      } else {
+        counter.innerText = target + suffix;
+      }
+    };
+
+    updateCount();
+  };
+
+  // Pakai IntersectionObserver
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        // Pastikan hanya animasi 1x
+        if (!counter.classList.contains('animated')) {
+          animateCounter(counter);
+          counter.classList.add('animated');
+        }
+      }
+    });
+  }, {
+    threshold: 0.5 // 50% dari elemen masuk layar
+  });
+
+  counters.forEach(counter => observer.observe(counter));
+</script>
+
+</body>
+</html>
+
